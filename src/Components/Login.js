@@ -1,13 +1,36 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import "./CSS/Login.css";
+import { auth } from "../firebase.js";
 
 function Login() {
+  const history = useHistory();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const login = (e) => {
     e.preventDefault(); //stops the refresh
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((auth) => {
+        //login in successfuly, redirect to home page
+        history.push("/");
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
   };
   const register = (e) => {
     e.preventDefault();
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((auth) => {
+        // created a user, login and redirect
+        history.push("/");
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
   };
   return (
     <div className="login">
@@ -22,9 +45,17 @@ function Login() {
         <h1>Sign-In</h1>
         <form>
           <h5>E-mail</h5>
-          <input type="email" />
+          <input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            type="email"
+          />
           <h5>Password</h5>
-          <input type="password" />
+          <input
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            type="password"
+          />
           <button type="submit" onClick={login} className="login__signInButton">
             Sign In
           </button>
