@@ -34,6 +34,8 @@ function Payment() {
     getClientSecret();
   }, [basket]);
 
+  console.log("the secret is ", clientSecret);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     setProcessing(true);
@@ -98,8 +100,8 @@ function Payment() {
           </div>
           <div className="payment__details">
             {/* Stripe magic */}
-            <form onSubmit={handleSubmit} onChange={handleChange}>
-              <CardElement />
+            <form onSubmit={handleSubmit}>
+              <CardElement onChange={handleChange} />
               <div className="payment__priceDetails">
                 <CurrencyFormat
                   renderText={(value) => <h3>Order total: {value}</h3>}
@@ -110,7 +112,7 @@ function Payment() {
                   prefix={"$"}
                 />
                 <button disabled={processing || disabled || succeeded}>
-                  <span>{processing ? <p>Processing...</p> : "Buy now"}</span>
+                  <span>{processing ? <p>Processing</p> : "Buy now"}</span>
                 </button>
               </div>
             </form>
