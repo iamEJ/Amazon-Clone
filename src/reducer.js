@@ -23,10 +23,16 @@ function reducer(state, action) {
         ...state,
         user: action.user,
       };
+
     case "ADD_TO_BASKET":
       //logic for adding item to basket
       return { ...state, basket: [...state.basket, action.item] };
       break;
+    case "EMPTY_BASKET":
+      return {
+        ...state,
+        basket: [],
+      };
     case "REMOVE_FROM_BASKET":
       // logic to remove
 
