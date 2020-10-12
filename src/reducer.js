@@ -27,7 +27,6 @@ function reducer(state, action) {
     case "ADD_TO_BASKET":
       //logic for adding item to basket
       return { ...state, basket: [...state.basket, action.item] };
-      break;
     case "EMPTY_BASKET":
       return {
         ...state,
@@ -54,7 +53,6 @@ function reducer(state, action) {
       }
 
       return { ...state, basket: newBasket };
-      break;
     default:
       return state;
   }
