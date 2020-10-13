@@ -10,7 +10,32 @@
   align-items: center;
   justify-content: flex-end;
   z-index: 1;
+  transition: all 0.5s;
+  transform: scale(1);
 }
+
+.product:hover {
+  transform: scale(1.02);
+  transition: all 0.5s;
+  box-shadow: 0 0 10px rgb(150, 150, 150);
+}
+
+.product__snackbar {
+  width: 400px;
+  margin-top: 50px;
+  color: #111 !important;
+  background-color: #fff !important;
+}
+
+.product__snackbarMessage {
+  display: flex;
+}
+
+.product__snackbarMessage > img {
+  width: 100px;
+  margin-right: 20px;
+}
+
 .product__info {
   height: 100px;
   margin-bottom: 15px;
