@@ -22,8 +22,4 @@
 
 <br />
 
-![Checkout](/images/checkout.jpg)
-
-<br />
-
 ![Orders](/images/orders.jpg)
