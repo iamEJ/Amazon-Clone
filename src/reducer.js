@@ -3,14 +3,7 @@ export const getBasketTotal = (basket) =>
 
 export const initialState = {
   basket: [
-    {
-      id: "11234",
-      title:
-        "Love Real Food: More Than 100 Feel-Good Vegetarian Favorites to Delight the Senses and Nourish the Body: A Cookbook",
-      price: 12.55,
-      rating: 5,
-      image: "https://images-na.ssl-images-amazon.com/images/I/A16VN49ZV1L.jpg",
-    },
+
   ],
   user: null,
 };
